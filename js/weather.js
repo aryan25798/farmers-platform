@@ -1,28 +1,33 @@
 document.getElementById('search-btn').addEventListener('click', function() {
+    const apiKey = '2f216d7e12fc4a7093905d7847230a7f'; // Replace with your Weatherbit API key
     const cityName = document.getElementById('city-name').value;
-    const apiKey = 'a091619aa44fbd31c5df1e565f21a097'; // Replace with your actual API key
-    const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric`;
+    const weatherUrl = `https://api.weatherbit.io/v2.0/current?city=${cityName}&key=${apiKey}`;
 
     fetch(weatherUrl)
         .then(response => response.json())
         .then(data => {
-            if (data.cod === 200) {
-                const weather = `
-                    <div class="weather-info">
-                        <h3>Weather in ${data.name}</h3>
-                        <p>Temperature: ${data.main.temp} °C</p>
-                        <p>Weather: ${data.weather[0].description}</p>
-                        <p>Humidity: ${data.main.humidity}%</p>
-                        <p>Wind Speed: ${data.wind.speed} m/s</p>
+            if (data.data && data.data.length > 0) {
+                const weatherData = data.data[0];
+                document.getElementById('weather-results').innerHTML = `
+                    <div class="weather-card">
+                        <div class="weather-info">
+                            <h3>${weatherData.city_name}, ${weatherData.country_code}</h3>
+                            <p><strong>Temperature:</strong> ${weatherData.temp} °C</p>
+                            <p><strong>Weather:</strong> ${weatherData.weather.description}</p>
+                            <p><strong>Wind Speed:</strong> ${weatherData.wind_spd} m/s</p>
+                            <p><strong>Humidity:</strong> ${weatherData.rh} %</p>
+                        </div>
+                        <div class="weather-icon">
+                            <i class="fas fa-cloud-sun"></i>
+                        </div>
                     </div>
                 `;
-                document.getElementById('weather-results').innerHTML = weather;
             } else {
-                document.getElementById('weather-results').innerHTML = `<p>Error: ${data.message}</p>`;
+                document.getElementById('weather-results').innerHTML = '<p>No weather data found for the entered city.</p>';
             }
         })
         .catch(error => {
             console.error('Error fetching weather data:', error);
-            document.getElementById('weather-results').innerHTML = '<p>Error fetching results.</p>';
+            document.getElementById('weather-results').innerHTML = '<p>Error fetching weather data. Please try again later.</p>';
         });
 });
