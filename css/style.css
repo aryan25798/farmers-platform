@@ -148,3 +148,54 @@ footer p {
     border-radius: 5px;
     font-weight: bold;
 }
+
+/* Section Background Image */
+#home {
+    background: url('your-image-path.jpg') no-repeat center center;
+    background-size: cover;
+    padding: 100px 20px;
+    position: relative;
+}
+
+/* Section Background Image */
+#home {
+    background: url('your-image-path.jpg') no-repeat center center;
+    background-size: cover;
+    padding: 100px 20px;
+    position: relative;
+}
+
+/* Section Background Image */
+#home {
+    background: url('https://www.freepik.com/free-photos-vectors/agriculture-background') no-repeat center center;
+    background-size: cover;
+    padding: 100px 20px;
+    position: relative;
+}
+
+/* Optional Overlay for Better Text Visibility */
+#home::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    z-index: 1;
+}
+
+/* Content Background Color and Styling */
+.content {
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    position: relative;
+    z-index: 2;
+    margin: 20px;
+    text-align: center;
+    color: #333; /* Darker text color for contrast */
+}
+
+
