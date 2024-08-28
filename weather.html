@@ -5,126 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather - Krishi Veda</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
-            margin: 0;
-            padding: 0;
-        }
-
-        header {
-            background-color: #28a745;
-            color: white;
-            padding: 20px 0;
-            text-align: center;
-        }
-
-        header .logo h1 {
-            margin: 0;
-        }
-
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        nav ul li {
-            display: inline;
-            margin: 0 10px;
-        }
-
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .content {
-            max-width: 900px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-
-        .section-img {
-            max-width: 100%;
-            border-radius: 8px;
-            margin-bottom: 20px;
-        }
-
-        #search-box {
-            margin: 20px 0;
-        }
-
-        #search-box input {
-            padding: 10px;
-            font-size: 16px;
-            width: 70%;
-            max-width: 300px;
-            margin-right: 10px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-
-        #search-box button {
-            padding: 10px 20px;
-            font-size: 16px;
-            background-color: #28a745;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        #weather-results {
-            margin-top: 20px;
-            text-align: left;
-        }
-
-        .weather-card {
-            background-color: #e3fcec;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .weather-card .weather-info {
-            flex: 1;
-        }
-
-        .weather-card .weather-info h3 {
-            margin: 0 0 10px 0;
-            font-size: 24px;
-            color: #28a745;
-        }
-
-        .weather-card .weather-info p {
-            margin: 5px 0;
-            font-size: 18px;
-        }
-
-        .weather-icon {
-            font-size: 50px;
-            color: #28a745;
-        }
-
-        footer {
-            background-color: #28a745;
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-            margin-top: 30px;
-        }
-    </style>
 </head>
 <body>
     <header>
@@ -147,12 +27,13 @@
         <div class="content">
             <h2>Weather & Alerts</h2>
             <img src="images/weather.jpeg" alt="Weather Alerts" class="section-img">
-            <p>Get current weather conditions and forecasts for your city.</p>
+            <p>Get current weather conditions and forecasts.</p>
 
             <!-- Weather Search Box -->
             <div id="search-box">
                 <input type="text" id="city-name" placeholder="Enter city name">
                 <button id="search-btn">Get Weather</button>
+                <button id="location-btn">Get Weather by Location</button>
             </div>
             <div id="weather-results"></div>
         </div>
