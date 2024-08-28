@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subsidy Finder - AgriHelp</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>AgriHelp</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="chatbot.html">Chatbot Assistance</a></li>
+                <li><a href="product-authentication.html">Product Authentication</a></li>
+                <li><a href="subsidy-finder.html">Subsidy Finder</a></li>
+                <li><a href="index.html#weather">Weather & Alerts</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="subsidy-finder">
+        <div class="content">
+            <h2>Find Subsidies</h2>
+            <img src="images/subsidy.jpeg" alt="Subsidy Management" class="section-img">
+            <p>Use the search tool below to find information on subsidies available for farmers.</p>
+
+            <!-- Google Custom Search Engine -->
+            <div id="search-box">
+                <input type="text" id="search-query" placeholder="Search for subsidies...">
+                <button id="search-btn">Search</button>
+            </div>
+            <div id="search-results"></div>
+
+            <h3>Useful Links to Government Subsidies:</h3>
+            <ul>
+                <li><a href="https://www.example1.gov/subsidies" target="_blank">Subsidy Program 1</a></li>
+                <li><a href="https://www.example2.gov/subsidies" target="_blank">Subsidy Program 2</a></li>
+                <li><a href="https://www.example3.gov/subsidies" target="_blank">Subsidy Program 3</a></li>
+                <li><a href="https://www.example4.gov/subsidies" target="_blank">Subsidy Program 4</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 AgriHelp. All rights reserved.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        // Google Custom Search API key and CX (Search Engine ID)
+        const apiKey = 'YOUR_API_KEY';
+        const cx = 'YOUR_CX';
+
+        document.getElementById('search-btn').addEventListener('click', function() {
+            const query = document.getElementById('search-query').value;
+            const searchUrl = `https://www.googleapis.com/customsearch/v1?q=${query}&key=${apiKey}&cx=${cx}`;
+
+            fetch(searchUrl)
+                .then(response => response.json())
+                .then(data => {
+                    const results = data.items.map(item => `
+                        <div class="search-result">
+                            <h3><a href="${item.link}" target="_blank">${item.title}</a></h3>
+                            <p>${item.snippet}</p>
+                        </div>
+                    `).join('');
+                    document.getElementById('search-results').innerHTML = results;
+                })
+                .catch(error => {
+                    console.error('Error fetching search results:', error);
+                    document.getElementById('search-results').innerHTML = 'Error fetching results.';
+                });
+        });
+    </script>
+</body>
+</html>
