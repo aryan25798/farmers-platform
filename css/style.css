@@ -218,4 +218,74 @@ footer button {
     border-radius: 8px; /* Rounded corners */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
 }
+.weather-card {
+    background-color: #f1f1f1;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 400px;
+    margin: 20px auto;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.weather-card h3 {
+    margin: 0;
+    font-size: 24px;
+    color: #333;
+}
+
+.weather-card .temperature {
+    font-size: 48px;
+    color: #e67e22;
+    margin: 10px 0;
+}
+
+.weather-card .description {
+    font-size: 18px;
+    color: #888;
+    margin: 10px 0;
+}
+
+.weather-card img {
+    width: 100px;
+    margin: 10px 0;
+}
+
+.weather-card .details {
+    margin-top: 20px;
+}
+
+.weather-card .details p {
+    margin: 5px 0;
+    font-size: 16px;
+    color: #555;
+}
+
+#search-box {
+    text-align: center;
+    margin: 20px 0;
+}
+
+#search-box input {
+    width: 60%;
+    padding: 10px;
+    font-size: 16px;
+    margin-right: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+#search-box button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #27ae60;
+    color: white;
+    cursor: pointer;
+}
+
+#search-box button:hover {
+    background-color: #2ecc71;
+}
 
