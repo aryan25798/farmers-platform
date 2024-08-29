@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One-Stop Agricultural Platform</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Krishi Veda</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="chatbot.html">Chatbot Assistance</a></li> <!-- Link updated -->
+                <li><a href="#authentication">Product Authentication</a></li>
+                <li><a href="#subsidy">Subsidy Finder</a></li>
+                <li><a href="#weather">Weather & Alerts</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="section">
+        <div class="content">
+            <h2>Welcome to Krishi Veda</h2>
+            <img src="images/home.jpg" alt="Agricultural Landscape" class="section-img">
+            <p>Your one-stop solution for all agricultural needs. From real-time chatbot assistance to localized weather alerts, we’ve got you covered.</p>
+        </div>
+    </section>
+
+    <section id="chatbot" class="section">
+        <div class="content">
+            <h2>Real-Time Chatbot Assistance</h2>
+            <img src="images/chatbot.jpg" alt="Chatbot Interaction" class="section-img">
+            <p>Get instant, context-based support and guidance through our inbuilt chatbot, tailored to your specific needs.</p>
+            <a href="chatbot.html"><button class="btn">Chat Now</button></a> <!-- Updated to link to chatbot.html -->
+        </div>
+    </section>
+
+    <section id="authentication" class="section">
+        <div class="content">
+            <h2>Product Authentication</h2>
+            <img src="images/authenticate.png" alt="Product Authentication" class="section-img">
+            <p>Verify the legitimacy of fertilizers and report counterfeits to protect your crops and investments.</p>
+            <a href="product-authentication.html"><button class="btn">Verify Product</button></a> <!-- Updated link -->
+        </div>
+    </section>
+    
+    <section id="subsidy" class="section">
+        <div class="content">
+            <h2>Subsidy and Aid Management</h2>
+            <img src="images/subsidy.jpeg" alt="Subsidy Management" class="section-img">
+            <p>Find, apply for, and manage subsidies and financial assistance that match your farming profile.</p>
+            <a href="subsidy-finder.html"><button class="btn">Find Subsidies</button></a> <!-- Updated link -->
+        </div>
+    </section>
+    
+    
+
+    <section id="weather" class="section">
+        <div class="content">
+            <h2>Localized Weather and Disease Alerts</h2>
+            <img src="images/weather.jpeg" alt="Weather Alerts" class="section-img">
+            <p>Receive accurate weather forecasts and crop disease diagnostics for optimized production.</p>
+            <a href="weather.html"><button class="btn">Check Weather</button></a>
+        </div>
+    </section>
+    
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <img src="images/contactus.png" alt="Contact Us" class="section-img">
+        <form action="/submit_form" method="POST">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <button id="btn" type="submit">Send Message</button>
+        </form>
+        
+        
+        
+        
+        
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Krishi Veda.All rights reserved.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
