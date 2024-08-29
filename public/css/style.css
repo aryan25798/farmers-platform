@@ -1,28 +1,29 @@
+/* Body */
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
     color: #333;
-    background: #f9f9f9;
+    background: url('/path-to-your-background-image.jpg') no-repeat center center fixed;
+    background-size: cover;
 }
 
-/* Header with 3D effect */
+/* Header */
 header {
-    background-color: #28a745;
+    background: linear-gradient(45deg, #28a745, #34c38f); /* Gradient green background */
     color: white;
     padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Deeper shadow for 3D effect */
-    transform: translateZ(0); /* Ensures hardware acceleration for smoother effects */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     position: relative;
-    z-index: 10; /* Make sure the header stays on top */
+    z-index: 10;
 }
 
 header .logo h1 {
     margin: 0;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Text shadow for 3D effect */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 nav ul {
@@ -40,92 +41,79 @@ nav ul li a {
     color: white;
     text-decoration: none;
     font-weight: bold;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Text shadow for 3D effect */
-    transition: transform 0.3s ease, text-shadow 0.3s ease;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
 nav ul li a:hover {
-    transform: translateY(-3px); /* Lift effect on hover */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); /* Enhanced text shadow on hover */
+    color: #dff0d8; /* Lighter green for hover effect */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
 }
 
-/* Section with 3D effect */
+/* Section */
 .section {
     padding: 60px 20px;
     text-align: center;
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.8); /* Slightly more opaque */
     margin: 20px 0;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Deeper shadow for 3D effect */
-    border-radius: 10px; /* Rounded corners for a modern look */
-    transform: translateZ(0); /* Ensure hardware acceleration */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .section:nth-child(even) {
-    background-color: #f1f1f1;
+    background-color: rgba(240, 240, 240, 0.8); /* Lighter semi-transparent */
 }
 
 .section:hover {
-    transform: translateY(-10px); /* Lift effect on hover */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
-}
-
-.section .content {
-    max-width: 800px;
-    margin: auto;
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .section h2 {
     margin-bottom: 20px;
     font-size: 2rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Text shadow for 3D effect */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .section p {
     font-size: 1.2rem;
     line-height: 1.6;
     margin-bottom: 20px;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Subtle text shadow for depth */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
-/* Button with 3D effect */
+/* Button */
 .btn {
     padding: 10px 20px;
-    background-color: #28a745;
+    background: linear-gradient(45deg, #28a745, #34c38f); /* Gradient green */
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 1rem;
     transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* 3D shadow */
-    transform: translateZ(0); /* Ensure hardware acceleration */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .btn:hover {
-    background-color: #218838;
-    transform: translateY(-5px); /* Lift effect on hover */
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* Deeper shadow on hover */
+    background: linear-gradient(45deg, #34c38f, #28a745); /* Inverted gradient for hover effect */
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
 }
 
-/* Footer with 3D effect */
+/* Footer */
 footer {
-    background-color: #28a745;
+    background: linear-gradient(45deg, #28a745, #34c38f); /* Gradient green */
     color: white;
     text-align: center;
     padding: 1rem;
-    position: fixed;
-    bottom: 0;
+    position: static;
     width: 100%;
-    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2); /* Deeper shadow for 3D effect */
-    transform: translateZ(0); /* Ensure hardware acceleration */
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
 }
 
-footer p {
-    margin: 0;
-    font-size: 0.9rem;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Subtle text shadow for depth */
-}
+/* Form styles */
 #contact form {
     max-width: 600px;
     margin: 0 auto;
@@ -136,156 +124,39 @@ footer p {
 
 #contact input, #contact textarea {
     padding: 10px;
-    border: 2px solid #2e8b57;
+    border: 2px solid #28a745; /* Solid green border */
     border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent */
 }
 
 #contact button {
     padding: 10px;
-    background-color: #2e8b57;
+    background: linear-gradient(45deg, #28a745, #34c38f); /* Gradient green */
     color: #fff;
     border: none;
     border-radius: 5px;
     font-weight: bold;
 }
-.centered {
-    display:flex;
-    justify-content: center;
-    align-items: center;
-}
 
-
-#contact{
-    text-align: center;
-    justify-content: center;
-    margin-top: -10px;
-
-}
-footer {
-    background-color: #2e8b57;
-    color: #fff;
-    padding: 10px;
-    text-align: center;
-    position: static; 
-    height: 50%;
-    width: 100%;
-    margin-top: 5px;
-
-}
-
-footer {
-    background-color: #28a745;
-    color: black;
-    padding: 10px;
-    text-align: center;
-    position: static; 
-    height: 5px;
-    width: 100%;
-}
-
-footer button {
-    height: 20px; /* Adjust the height as needed */
-    padding: 10px 20px; /* Adjust padding for better spacing */
-    font-size: 16px; /* Optional: Adjust font size */
-    border-radius: 5px; /* Optional: Add some rounding to the corners */
-}
-
-/* General style for section images */
+/* Section images */
 .section-img {
-    width: 60%; /* Default width for smaller images */
-    max-width: 300px; /* Limit the maximum width for smaller images */
+    width: 60%;
+    max-width: 300px;
     height: auto;
     display: block;
-    margin: 20px auto; /* Center the image and add vertical spacing */
-    transition: transform 0.3s ease, opacity 0.3s ease; /* Transition effects */
-}
-
-/* Style for home image */
-#home .section-img {
-    width: 80%; /* Larger width for home image */
-    max-width: 800px; /* Larger max width for home image */
-}
-
-/* Hover effect for images */
-.section-img:hover {
-    transform: scale(1.03); /* Slightly enlarge image on hover */
-    opacity: 0.9; /* Slightly fade image on hover */
-}
-
-/* Adding a border and shadow effect */
-.section-img {
-    border: 4px solid #2e8b57; /* Border color matching the footer */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
-}
-.weather-card {
-    background-color: #f1f1f1;
-    border-radius: 10px;
-    padding: 20px;
-    max-width: 400px;
     margin: 20px auto;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 4px solid #28a745; /* Solid green border */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-.weather-card h3 {
-    margin: 0;
-    font-size: 24px;
-    color: #333;
+#home .section-img {
+    width: 80%;
+    max-width: 800px;
 }
 
-.weather-card .temperature {
-    font-size: 48px;
-    color: #e67e22;
-    margin: 10px 0;
+.section-img:hover {
+    transform: scale(1.03);
+    opacity: 0.9;
 }
-
-.weather-card .description {
-    font-size: 18px;
-    color: #888;
-    margin: 10px 0;
-}
-
-.weather-card img {
-    width: 100px;
-    margin: 10px 0;
-}
-
-.weather-card .details {
-    margin-top: 20px;
-}
-
-.weather-card .details p {
-    margin: 5px 0;
-    font-size: 16px;
-    color: #555;
-}
-
-#search-box {
-    text-align: center;
-    margin: 20px 0;
-}
-
-#search-box input {
-    width: 60%;
-    padding: 10px;
-    font-size: 16px;
-    margin-right: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-#search-box button {
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    background-color: #27ae60;
-    color: white;
-    cursor: pointer;
-}
-
-#search-box button:hover {
-    background-color: #2ecc71;
-}
-

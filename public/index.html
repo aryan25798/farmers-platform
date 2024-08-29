@@ -6,6 +6,19 @@
     <title>One-Stop Agricultural Platform</title>
     <link rel="stylesheet" href="css/style.css">
     <style>
+        /* Background image styling */
+        body {
+            background-image: url('images/wheat-field-image.jpg'); /* Replace with your image path */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
         /* Chatbot button styling */
         #chatbot-button {
             position: fixed;
@@ -57,6 +70,62 @@
             border: none;
             border-radius: 10px;
         }
+
+        /* Other section styling */
+        .section {
+            padding: 60px 20px;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent background */
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .section h2 {
+            color: #28a745;
+        }
+
+        .btn {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #34c38f;
+        }
+
+        header {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 10px 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            color: #28a745;
+        }
     </style>
 </head>
 <body>
@@ -67,7 +136,7 @@
         <nav>
             <ul>
                 <li><a href="#home">Home</a></li>
-                <li><a href="chatbot.html">Chatbot Assistance</a></li> <!-- Link updated -->
+                <li><a href="chatbot.html">Chatbot Assistance</a></li>
                 <li><a href="#authentication">Product Authentication</a></li>
                 <li><a href="#subsidy">Subsidy Finder</a></li>
                 <li><a href="#weather">Weather & Alerts</a></li>
@@ -89,7 +158,7 @@
             <h2>Real-Time Chatbot Assistance</h2>
             <img src="images/chatbot.jpg" alt="Chatbot Interaction" class="section-img">
             <p>Get instant, context-based support and guidance through our inbuilt chatbot, tailored to your specific needs.</p>
-            <a href="chatbot.html"><button class="btn">Chat Now</button></a> <!-- Updated to link to chatbot.html -->
+            <a href="chatbot.html"><button class="btn">Chat Now</button></a>
         </div>
     </section>
 
@@ -98,7 +167,7 @@
             <h2>Product Authentication</h2>
             <img src="images/authenticate.png" alt="Product Authentication" class="section-img">
             <p>Verify the legitimacy of fertilizers and report counterfeits to protect your crops and investments.</p>
-            <a href="product-authentication.html"><button class="btn">Verify Product</button></a> <!-- Updated link -->
+            <a href="product-authentication.html"><button class="btn">Verify Product</button></a>
         </div>
     </section>
     
@@ -107,7 +176,7 @@
             <h2>Subsidy and Aid Management</h2>
             <img src="images/subsidy.jpeg" alt="Subsidy Management" class="section-img">
             <p>Find, apply for, and manage subsidies and financial assistance that match your farming profile.</p>
-            <a href="subsidy-finder.html"><button class="btn">Find Subsidies</button></a> <!-- Updated link -->
+            <a href="subsidy-finder.html"><button class="btn">Find Subsidies</button></a>
         </div>
     </section>
     
@@ -120,7 +189,7 @@
         </div>
     </section>
     
-    <section id="contact">
+    <section id="contact" class="section">
         <h2>Contact Us</h2>
         <img src="images/contactus.png" alt="Contact Us" class="section-img">
         <form id="contact-form">
@@ -154,15 +223,11 @@
         });
 
         document.getElementById('contact-form').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent the form from submitting the traditional way
-            
-            // You can perform your form submission to the server here using fetch or AJAX
-            // For this example, we will just simulate it with a timeout
-
+            event.preventDefault();
             setTimeout(() => {
-                alert('Your message has been sent successfully!');
-                document.getElementById('contact-form').reset(); // Optionally reset the form after submission
-            }, 500); // Simulate server response delay
+                prompt('Your message has been sent successfully! If you need any further assistance, please let us know.');
+                document.getElementById('contact-form').reset();
+            }, 500);
         });
     </script>
 </body>
