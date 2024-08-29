@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Subsidy Finder - Krishi Veda/title>
+    <title>Subsidy Finder - Krishi Veda</title> <!-- Fixed the closing tag here -->
     <link rel="stylesheet" href="css/style.css">
     <style>
         /* Add custom styles for this page */
@@ -89,27 +89,34 @@
             margin-top: 20px;
         }
 
-        .search-result {
-            border-bottom: 1px solid #ddd;
-            padding: 10px 0;
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
         }
 
-        .search-result h3 {
-            margin: 0;
+        table, th, td {
+            border: 1px solid #ddd;
         }
 
-        .search-result h3 a {
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #2e8b57;
+            color: white;
+        }
+
+        td a {
             color: #2e8b57;
             text-decoration: none;
+            font-weight: bold;
         }
 
-        .search-result h3 a:hover {
+        td a:hover {
             text-decoration: underline;
-        }
-
-        .search-result p {
-            margin: 5px 0 0;
-            color: #666;
         }
 
         footer {
@@ -169,24 +176,42 @@
 
     <script src="js/script.js"></script>
     <script>
-        // Google Custom Search API key and CX (Search Engine ID)
-        const apiKey = 'AIzaSyDI55Ufq-70jL3APTXHFcynEM4P3bwgSOc'; // Replace with your actual API Key
-        const cx = '655cb8dd5470148fe'; // Replace with your actual Custom Search Engine ID
-
         document.getElementById('search-btn').addEventListener('click', function() {
-            const query = document.getElementById('search-query').value;
-            const searchUrl = `https://www.googleapis.com/customsearch/v1?q=${query}&key=${apiKey}&cx=${cx}`;
+            const query = document.getElementById('search-query').value.trim();
+            if (!query) {
+                alert('Please enter a search term.');
+                return;
+            }
+
+            const apiKey = 'AIzaSyDI55Ufq-70jL3APTXHFcynEM4P3bwgSOc'; // Replace with your actual API Key
+            const cx = '655cb8dd5470148fe'; // Replace with your actual Custom Search Engine ID
+            const searchUrl = `https://www.googleapis.com/customsearch/v1?q=${encodeURIComponent(query)}&key=${apiKey}&cx=${cx}`;
 
             fetch(searchUrl)
                 .then(response => response.json())
                 .then(data => {
-                    const results = data.items.map(item => `
-                        <div class="search-result">
-                            <h3><a href="${item.link}" target="_blank">${item.title}</a></h3>
-                            <p>${item.snippet}</p>
-                        </div>
-                    `).join('');
-                    document.getElementById('search-results').innerHTML = results;
+                    if (data.items) {
+                        const results = `
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Title</th>
+                                        <th>Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    ${data.items.map(item => `
+                                        <tr>
+                                            <td><a href="${item.link}" target="_blank">${item.title}</a></td>
+                                            <td>${item.snippet}</td>
+                                        </tr>
+                                    `).join('')}
+                                </tbody>
+                            </table>`;
+                        document.getElementById('search-results').innerHTML = results;
+                    } else {
+                        document.getElementById('search-results').innerHTML = '<p>No results found.</p>';
+                    }
                 })
                 .catch(error => {
                     console.error('Error fetching search results:', error);
@@ -194,7 +219,5 @@
                 });
         });
     </script>
-    <script async src="https://cse.google.com/cse.js?cx=YOUR_CX"></script>
-    <div class="gcse-search"></div>
 </body>
 </html>

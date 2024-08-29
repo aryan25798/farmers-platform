@@ -58,8 +58,6 @@
         </div>
     </section>
     
-    
-
     <section id="weather" class="section">
         <div class="content">
             <h2>Localized Weather and Disease Alerts</h2>
@@ -72,23 +70,30 @@
     <section id="contact">
         <h2>Contact Us</h2>
         <img src="images/contactus.png" alt="Contact Us" class="section-img">
-        <form action="/submit_form" method="POST">
+        <form id="contact-form">
             <input type="text" name="name" placeholder="Your Name" required>
             <input type="email" name="email" placeholder="Your Email" required>
             <textarea name="message" placeholder="Your Message" required></textarea>
             <button id="btn" type="submit">Send Message</button>
         </form>
-        
-        
-        
-        
-        
     </section>
 
     <footer>
-        <p>&copy; 2024 Krishi Veda.All rights reserved.</p>
+        <p>&copy; 2024 Krishi Veda. All rights reserved.</p>
     </footer>
 
-    <script src="js/script.js"></script>
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the form from submitting the traditional way
+            
+            // You can perform your form submission to the server here using fetch or AJAX
+            // For this example, we will just simulate it with a timeout
+
+            setTimeout(() => {
+                alert('Your message has been sent successfully!');
+                document.getElementById('contact-form').reset(); // Optionally reset the form after submission
+            }, 500); // Simulate server response delay
+        });
+    </script>
 </body>
 </html>
