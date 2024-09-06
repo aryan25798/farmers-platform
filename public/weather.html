@@ -57,6 +57,21 @@
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
         }
 
+        #lang-switch {
+            margin-left: 10px;
+            padding: 5px 15px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #lang-switch:hover {
+            background-color: #218838;
+        }
+
         section#weather {
             padding: 60px 20px;
             text-align: center;
@@ -139,7 +154,7 @@
 <body>
     <header>
         <div class="logo">
-            <h1>AgriHelp</h1>
+            <h1>Krishi Veda</h1>
         </div>
         <nav>
             <ul>
@@ -150,14 +165,15 @@
                 <li><a href="weather.html">Weather & Alerts</a></li>
                 <li><a href="index.html#contact">Contact</a></li>
             </ul>
+            <button id="lang-switch">हिंदी</button>
         </nav>
     </header>
 
     <section id="weather">
         <div class="content">
-            <h2>Weather & Alerts</h2>
+            <h2 id="weather-title">Weather & Alerts</h2>
             <img src="images/weather.jpeg" alt="Weather Alerts" class="section-img">
-            <p>Get current weather conditions and forecasts.</p>
+            <p id="weather-description">Get current weather conditions and forecasts.</p>
 
             <!-- Weather Search Box -->
             <div id="search-box">
@@ -174,5 +190,22 @@
     </footer>
 
     <script src="js/weather.js"></script>
+    <script>
+        const langSwitch = document.getElementById('lang-switch');
+        const weatherTitle = document.getElementById('weather-title');
+        const weatherDescription = document.getElementById('weather-description');
+
+        langSwitch.addEventListener('click', () => {
+            if (langSwitch.innerText === 'हिंदी') {
+                langSwitch.innerText = 'English';
+                weatherTitle.innerText = 'मौसम और अलर्ट';
+                weatherDescription.innerText = 'वर्तमान मौसम की स्थिति और पूर्वानुमान प्राप्त करें।';
+            } else {
+                langSwitch.innerText = 'हिंदी';
+                weatherTitle.innerText = 'Weather & Alerts';
+                weatherDescription.innerText = 'Get current weather conditions and forecasts.';
+            }
+        });
+    </script>
 </body>
 </html>

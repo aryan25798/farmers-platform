@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Authentication - Krishi Veda</title>
+    <title id="page-title">Product Authentication - Krishi Veda</title>
     <link rel="stylesheet" href="css/style.css">
     <style>
         /* Chatbot button styling */
@@ -57,40 +57,118 @@
             border: none;
             border-radius: 10px;
         }
+
+        header {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 10px 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            color: #28a745;
+        }
+
+        /* Language Switcher Button Styling */
+        #language-switcher {
+            display: block;
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 20px auto;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        #language-switcher:hover {
+            background: #34c38f;
+        }
+
+        .section-img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background-color: #34c38f;
+        }
+
+        footer {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 10px 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
     </style>
 </head>
 <body>
     <header>
         <div class="logo">
-            <h1>Krishi Veda</h1>
+            <h1 id="logo-text">Krishi Veda</h1>
         </div>
         <nav>
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="chatbot.html">Chatbot Assistance</a></li>
-                <li><a href="product-authentication.html">Product Authentication</a></li>
-                <li><a href="index.html#subsidy">Subsidy Finder</a></li>
-                <li><a href="index.html#weather">Weather & Alerts</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="index.html" id="home-link">Home</a></li>
+                <li><a href="chatbot.html" id="chatbot-link">Chatbot Assistance</a></li>
+                <li><a href="product-authentication.html" id="authentication-link">Product Authentication</a></li>
+                <li><a href="index.html#subsidy" id="subsidy-link">Subsidy Finder</a></li>
+                <li><a href="index.html#weather" id="weather-link">Weather & Alerts</a></li>
+                <li><a href="index.html#contact" id="contact-link">Contact</a></li>
             </ul>
         </nav>
     </header>
 
+    <button id="language-switcher">Change to Hindi</button>
+
     <section id="authentication">
         <div class="content">
-            <h2>Product Authentication</h2>
+            <h2 id="authentication-heading">Product Authentication</h2>
             <img src="images/authenticate.png" alt="Product Authentication" class="section-img">
-            <p>Verify the legitimacy of fertilizers and other agricultural products to protect your crops and investments.</p>
-            <p>Use the form below to check if a product is authentic:</p>
+            <p id="authentication-paragraph">Verify the legitimacy of fertilizers and other agricultural products to protect your crops and investments.</p>
+            <p id="authentication-instructions">Use the form below to check if a product is authentic:</p>
             <form action="submit_authentication.php" method="POST">
                 <input type="text" name="product_code" placeholder="Enter Product Code" required>
-                <button class="btn" type="submit">Verify</button>
+                <button class="btn" type="submit" id="authentication-button">Verify</button>
             </form>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2024 Krishi Veda. All rights reserved.</p>
+        <p id="footer-text">&copy; 2024 Krishi Veda. All rights reserved.</p>
     </footer>
 
     <!-- Chatbot button and container -->
@@ -102,6 +180,69 @@
     <script>
         const chatbotButton = document.getElementById('chatbot-button');
         const chatbotContainer = document.getElementById('chatbot-container');
+        const languageSwitcher = document.getElementById('language-switcher');
+        
+        const texts = {
+            english: {
+                title: 'Product Authentication - Krishi Veda',
+                logo: 'Krishi Veda',
+                homeLink: 'Home',
+                chatbotLink: 'Chatbot Assistance',
+                authenticationLink: 'Product Authentication',
+                subsidyLink: 'Subsidy Finder',
+                weatherLink: 'Weather & Alerts',
+                contactLink: 'Contact',
+                authenticationHeading: 'Product Authentication',
+                authenticationParagraph: 'Verify the legitimacy of fertilizers and other agricultural products to protect your crops and investments.',
+                authenticationInstructions: 'Use the form below to check if a product is authentic:',
+                authenticationButton: 'Verify',
+                footerText: '© 2024 Krishi Veda. All rights reserved.',
+                languageSwitcher: 'Change to Hindi'
+            },
+            hindi: {
+                title: 'उत्पाद प्रमाणीकरण - कृषि वेद',
+                logo: 'कृषि वेद',
+                homeLink: 'होम',
+                chatbotLink: 'चैटबॉट सहायता',
+                authenticationLink: 'उत्पाद प्रमाणीकरण',
+                subsidyLink: 'सब्सिडी खोजक',
+                weatherLink: 'मौसम और अलर्ट',
+                contactLink: 'संपर्क',
+                authenticationHeading: 'उत्पाद प्रमाणीकरण',
+                authenticationParagraph: 'खाद और अन्य कृषि उत्पादों की वैधता की पुष्टि करें ताकि आपकी फसलें और निवेश सुरक्षित रह सकें।',
+                authenticationInstructions: 'यहां दिए गए फॉर्म का उपयोग करें यह जांचने के लिए कि क्या उत्पाद प्रामाणिक है:',
+                authenticationButton: 'सत्यापित करें',
+                footerText: '© 2024 कृषि वेद. सभी अधिकार सुरक्षित।',
+                languageSwitcher: 'Change to English'
+            }
+        };
+
+        const updateLanguage = (lang) => {
+            document.getElementById('page-title').textContent = texts[lang].title;
+            document.getElementById('logo-text').textContent = texts[lang].logo;
+            document.getElementById('home-link').textContent = texts[lang].homeLink;
+            document.getElementById('chatbot-link').textContent = texts[lang].chatbotLink;
+            document.getElementById('authentication-link').textContent = texts[lang].authenticationLink;
+            document.getElementById('subsidy-link').textContent = texts[lang].subsidyLink;
+            document.getElementById('weather-link').textContent = texts[lang].weatherLink;
+            document.getElementById('contact-link').textContent = texts[lang].contactLink;
+            document.getElementById('authentication-heading').textContent = texts[lang].authenticationHeading;
+            document.getElementById('authentication-paragraph').textContent = texts[lang].authenticationParagraph;
+            document.getElementById('authentication-instructions').textContent = texts[lang].authenticationInstructions;
+            document.getElementById('authentication-button').textContent = texts[lang].authenticationButton;
+            document.getElementById('footer-text').textContent = texts[lang].footerText;
+
+            document.documentElement.lang = lang === 'hindi' ? 'hi' : 'en';
+            languageSwitcher.textContent = texts[lang].languageSwitcher;
+        };
+
+        languageSwitcher.addEventListener('click', () => {
+            const currentLang = document.documentElement.lang === 'hi' ? 'english' : 'hindi';
+            updateLanguage(currentLang);
+        });
+
+        // Initialize with the current language
+        updateLanguage(document.documentElement.lang === 'hi' ? 'hindi' : 'english');
 
         chatbotButton.addEventListener('click', () => {
             if (chatbotContainer.style.display === 'none' || chatbotContainer.style.display === '') {
